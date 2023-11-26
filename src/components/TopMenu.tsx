@@ -13,20 +13,22 @@ export default async function TopMenu(){
             <TopMenuItem title="Booking" pageRef="/booking" />
             <Image src={'/img/logo.png'} className={styles.logoimg}
             alt="Logo" width={0} height={0} sizes="100vh"/>
-
+            <div className="flex flex-row absolute left-0 h-full">
             {
                 session? <Link href="/api/auth/signout" >
-                    <div className="flex items-center absolute left-0 h-full px-2 text-cyan-600 text-sm" >
+                    <div className="flex items-center h-full px-2 text-cyan-600 text-sm" >
                         Sign-Out of {session.user?.name}
                     </div>
                     </Link>
                     :<Link href="/api/auth/signin" >
-                         <div className="flex items-center absolute left-0 h-full px-2 text-cyan-600 text-sm" >
+                         <div className="flex items-center h-full px-2 text-cyan-600 text-sm" >
                             Sign-In
                         </div>
                     </Link>
 
             }
+            <TopMenuItem title="My Booking" pageRef="/cart" />
+            </div>
             
         </div>
     );
